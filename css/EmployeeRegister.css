@@ -1,0 +1,41 @@
+/* UC1 */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.header{
+    padding: 15px 0;
+    background-color: white;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.logo-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+}
+
+.emp-text{
+    font: normal normal bold 17px/20px "Montserrat", sans-serif;
+    color: #82a70c;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+
+.emp-payroll{
+    color: #42515f;
+}
