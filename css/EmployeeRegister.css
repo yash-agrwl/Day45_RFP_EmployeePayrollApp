@@ -149,6 +149,7 @@ select {
     text-align: center;
 }
 
+/* UC6-ext */
 @media only screen and (max-width: 960px) {
     .cancelButton {
         margin-left: 0px;
@@ -160,24 +161,24 @@ select {
     }
 }
 
-@media only screen and (max-width:600px){
-    .form{
+@media only screen and (max-width:600px) {
+    .form {
         margin-top: 10px;
     }
 
-    .row{
+    .row {
         flex-direction: column;
     }
 
-    .uploadButton{
+    .uploadButton {
         justify-content: flex-start;
     }
 
-    .profile-radio-content{
+    .profile-radio-content {
         flex-flow: wrap;
     }
 
-    .submit-reset{
+    .submit-reset {
         width: 100%;
         display: flex;
         flex-grow: 1;
@@ -186,12 +187,24 @@ select {
         margin-bottom: 20px;
     }
 
-    .submitButton{
+    .submitButton {
         margin: 0;
     }
 
-    .buttonParent{
+    .buttonParent {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
+}
+
+/* UC7 */
+.submitButton:hover {
+    background-color: #82A70C;
+    color: white;
+}
+
+.cancelButton:hover,
+.resetButton:hover {
+    background-color: #707070;
+    color: white;
 }
