@@ -6,4 +6,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     salary.addEventListener("input", function () {
         output.textContent = salary.value;
     });
+
+    // Name Validation.
+    let name = document.querySelector("#name");
+    let nameError = document.querySelector(".name-error");
+    name.addEventListener('input', function () {
+        if (name.value.length == 0) {
+            nameError.textContent = "";
+            return;
+        }
+        try {
+            (new EmployeePayrollData()).name = name.value;
+            nameError.textContent = "";
+        }
+        catch (e) {
+            nameError.textContent = e;
+        }
+    });
 })
