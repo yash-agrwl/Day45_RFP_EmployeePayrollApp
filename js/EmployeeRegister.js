@@ -7,20 +7,56 @@ window.addEventListener('DOMContentLoaded', (event) => {
         output.textContent = salary.value;
     });
 
-    // Name Validation.
+    // UC10B - Name Validation.
     let name = document.querySelector("#name");
-    let nameError = document.querySelector(".name-error");
     name.addEventListener('input', function () {
         if (name.value.length == 0) {
-            nameError.textContent = "";
+            setValueByClass(".name-error", "");
             return;
         }
         try {
             (new EmployeePayrollData()).name = name.value;
-            nameError.textContent = "";
+            setValueByClass(".name-error", "");
         }
         catch (e) {
-            nameError.textContent = e;
+            setValueByClass(".name-error", e);
         }
     });
-})
+
+    // UC10C - startDate Validation.
+    const date = document.querySelector("#date");
+    date.addEventListener('input', function () {
+        const startDate = getInputValueById("#day") + " " + getInputValueById("#month") + " " + getInputValueById("#year");
+        try {
+            (new EmployeePayrollData()).startDate = new Date(startDate);
+            setValueByClass(".date-error", "");
+        }
+        catch (e) {
+            setValueByClass(".date-error", e);
+        }
+    });
+});
+
+/*
+* 1: querySelector is the newer feature.
+* 2: The querySelector method can be used when selecting by element name, nesting or class name.
+* 3: querySelector lets you find elements with rules that can't be expressed with getElementById.
+*/
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+// /*
+// * 1: getElementById is better supported than querySelector in older versions of the browsers.
+// * 2: The thing with getElementById is that it only allows to select an element by its id.
+// */
+// const getInputElementValue = (id) => {
+//     let value = document.getElementById(id).value;
+//     return value;
+// }
+
+const setValueByClass = (className, value) => {
+    const element = document.querySelector(className);
+    element.textContent = value;
+}

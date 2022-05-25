@@ -83,9 +83,10 @@
                 <output class="salary-output text" for="salary">40000</output>
             </div>
             <div class="row-content">
-                <label class="label text" for="startDate">Start Date</label>
-                <div>
-                    <select name="Day" id="day">
+                <label class="label text" for="date">Start Date</label>
+                <div id="date">
+                    <select name="Day" id="day" required>
+                        <option selected disabled hidden value="">Day</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -118,7 +119,8 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select name="Month" id="month">
+                    <select name="Month" id="month" required>
+                        <option selected disabled hidden value="">Month</option>
                         <option value="Jan">January</option>
                         <option value="Feb">February</option>
                         <option value="March">March</option>
@@ -132,7 +134,8 @@
                         <option value="Nov">November</option>
                         <option value="Dec">December</option>
                     </select>
-                    <select name="Year" id="year">
+                    <select name="Year" id="year" required>
+                        <option selected disabled hidden value="">Year</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
@@ -142,6 +145,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
