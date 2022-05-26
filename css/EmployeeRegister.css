@@ -123,6 +123,10 @@ select {
     background-color: transparent;
 }
 
+textarea {
+    height: 100px;
+}
+
 /* UC6 */
 .buttonParent {
     display: flex;
