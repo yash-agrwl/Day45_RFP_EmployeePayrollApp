@@ -65,6 +65,7 @@ const setValueByClass = (className, value) => {
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     }
     catch (e) {
         alert(e + "\nPlease try again...");
@@ -99,4 +100,17 @@ const getSelectedValues = (propertyValue) => {
             selectItems.push(item.value);
     });
     return selectItems;
+}
+
+// UC12
+function createAndUpdateStorage(employeePayrollData) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+
+    if (employeePayrollList != undefined)
+        employeePayrollList.push(employeePayrollData);
+    else
+        employeePayrollList = [employeePayrollData];
+
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
