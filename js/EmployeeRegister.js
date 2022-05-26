@@ -60,3 +60,43 @@ const setValueByClass = (className, value) => {
     const element = document.querySelector(className);
     element.textContent = value;
 }
+
+// UC11
+const save = () => {
+    try {
+        let employeePayrollData = createEmployeePayroll();
+    }
+    catch (e) {
+        alert(e + "\nPlease try again...");
+    }
+}
+
+const createEmployeePayroll = () => {
+    let employeePayrollData = new EmployeePayrollData();
+    try {
+        employeePayrollData.name = getInputValueById("#name");
+    }
+    catch (e) {
+        setValueByClass(".name-error", e);
+        throw e;
+    }
+    employeePayrollData.ProfilePic = getSelectedValues("[name=profile]").pop();
+    employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
+    employeePayrollData.department = getSelectedValues('[name=department]');
+    employeePayrollData.salary = getInputValueById('#salary');
+    employeePayrollData.note = getInputValueById("#notes");
+    let date = getInputValueById("#day") + " " + getInputValueById("#month") + " " + getInputValueById("#year");
+    employeePayrollData.startDate = new Date(date);
+    alert(employeePayrollData.toString());
+    return employeePayrollData;
+}
+
+const getSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorAll(propertyValue);
+    let selectItems = [];
+    allItems.forEach(item => {
+        if (item.checked)
+            selectItems.push(item.value);
+    });
+    return selectItems;
+}
