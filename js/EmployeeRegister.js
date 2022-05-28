@@ -114,3 +114,33 @@ function createAndUpdateStorage(employeePayrollData) {
     alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
+
+// UC13
+const resetForm = () => {
+    setValueByClass(".name-error", "");
+    setValueByClass(".salary-output", 40000);
+    setValueByClass(".date-error", "");
+
+    // Optional: needed when resetButton is of type button instead of reset.
+    setValueById("#name", "");
+    unsetSelectedValues("[name=profile]");
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+    setValueById("#salary", "");
+    setValueById("#day", "");
+    setValueById("#month", "");
+    setValueById("#year", "");
+    setValueById("#notes", "");
+}
+
+const setValueById = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
+
+const unsetSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorAll(propertyValue);
+    allItems.forEach(item => {
+        item.checked = false;
+    });
+}
